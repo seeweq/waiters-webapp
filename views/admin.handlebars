@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <title>admin</title>
+</head>
+
+<body>
+  <table>
+    <th class="headings">Monday</th>
+    <tr>
+    <ul>
+       <td>
+        {{#each waitersADay.Monday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </ul>
+  </tr>
+    <th class="headings">Tuesday</th>
+    <tr>
+    <ul>
+      <td>
+        {{#each waitersADay.Tuesday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </ul>
+  </tr>
+    <th class="headings">Wednesday</th>
+    <ul>
+      <tr>
+      <td>
+        {{#each waitersADay.Wednesday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </tr>
+    </ul>
+    <th class="headings">Thursday</th>
+    <tr>
+    <ul>
+      <td>
+        {{#each waitersADay.Thursday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </ul>
+  </tr>
+    <th class="headings">Friday</th>
+    <tr>
+    <ul>
+      <td>
+        {{#each waitersADay.Friday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </ul>
+  </tr>
+    <th class="headings">Saturday</th>
+    <tr>
+    <ul>
+      <td>
+        {{#each waitersADay.Saturday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </ul>
+  </tr>
+    <th class="headings">Sunday</th>
+    <tr>
+    <ul>
+      <td>
+        {{#each waitersADay.Sunday.waiters}}
+          <li> {{this}} </li>
+        {{/each}}
+      </td>
+    </ul>
+  </tr>
+  </table>
+</body>
+
+</html>

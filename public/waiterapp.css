@@ -1,0 +1,15 @@
+.welcomeH{
+  text-align: center;
+}
+.printWelcumMsg{
+  text-align: center;
+}
+.headings{
+  font-size: 30px;
+}
+li{
+   list-style: none;
+}
+th {
+  border: solid
+}
