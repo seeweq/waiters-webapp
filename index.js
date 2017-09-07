@@ -3,12 +3,6 @@ var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var app = express()
 var models = require('./models')
-
-
-
-
-
-
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }))
@@ -28,11 +22,6 @@ app.get('/waiters/:username', function(req, res) {
     displayName: "Hi " + waiterName + "," + " please select your days"
   })
 });
-
-
-
-
-
 
 app.post('/waiters/:username', function(req, res) {
   var days = req.body.weekdays
