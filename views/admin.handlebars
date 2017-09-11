@@ -9,70 +9,66 @@
 
 <body>
   <table>
-    <th class="headings">Monday</th>
+    <thead>
     <tr>
+    <th class="headings">Monday</th>
+    <th class="headings">Tuesday</th>
+    <th class="headings">Wednesday</th>
+    <th class="headings">Thursday</th>
+    <th class="headings">Friday</th>
+    <th class="headings">Saturday</th>
+    <th class="headings">Sunday</th>
+</tr>
+</thead>
+<tr>
     <ul>
-       <td>
+       <td class="{{monDisplay}}">
         {{#each waitersADay.Monday.waiters}}
           <li> {{this}} </li>
         {{/each}}
       </td>
-    </ul>
-  </tr>
-    <th class="headings">Tuesday</th>
-    <tr>
-    <ul>
-      <td>
+
+
+
+      <td class="{{tueDisplay}}">
         {{#each waitersADay.Tuesday.waiters}}
           <li> {{this}} </li>
         {{/each}}
       </td>
-    </ul>
-  </tr>
-    <th class="headings">Wednesday</th>
-    <ul>
-      <tr>
-      <td>
+
+
+      <td class="{{wedDisplay}}">
         {{#each waitersADay.Wednesday.waiters}}
           <li> {{this}} </li>
         {{/each}}
       </td>
-    </tr>
-    </ul>
-    <th class="headings">Thursday</th>
-    <tr>
-    <ul>
-      <td>
+
+
+      <td class="{{thuDisplay}}">
         {{#each waitersADay.Thursday.waiters}}
           <li> {{this}} </li>
         {{/each}}
       </td>
-    </ul>
-  </tr>
-    <th class="headings">Friday</th>
-    <tr>
-    <ul>
-      <td>
+
+
+
+      <td class="{{friDisplay}}">
         {{#each waitersADay.Friday.waiters}}
           <li> {{this}} </li>
         {{/each}}
       </td>
-    </ul>
-  </tr>
-    <th class="headings">Saturday</th>
-    <tr>
-    <ul>
-      <td>
+
+
+
+      <td class="{{satDisplay}}">
         {{#each waitersADay.Saturday.waiters}}
           <li> {{this}} </li>
         {{/each}}
       </td>
-    </ul>
-  </tr>
-    <th class="headings">Sunday</th>
-    <tr>
-    <ul>
-      <td>
+
+
+
+      <td class="{{sunDisplay}}">
         {{#each waitersADay.Sunday.waiters}}
           <li> {{this}} </li>
         {{/each}}
@@ -80,6 +76,9 @@
     </ul>
   </tr>
   </table>
+  <form class="resetbtn" action="/reset" method="post">
+    <input type="submit" name="waiterResetbtn" value="Reset">
+  </form>
 </body>
 
 </html>

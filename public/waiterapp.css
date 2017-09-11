@@ -13,3 +13,18 @@ li{
 th {
   border: solid
 }
+.colour1{
+  background-color: green;
+}
+.colour2{
+  background-color: red;
+}
+.colour3{
+  background-color: orange;
+}
+table{
+margin-left: 50px;
+}
+.resetbtn{
+  margin-left: 20px;
+}

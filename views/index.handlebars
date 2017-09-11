@@ -2,25 +2,30 @@
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <title>waiters Availability App</title>
 </head>
 <body>
   <h1 class="welcomeH"> WELCOME TO THE WAITER AVAILABILITY APP </h1>
-  <h2 class="printWelcumMsg">{{displayName}}</h2>
+  <h2 class="printWelcumMsg"> {{waiters}}</h2>
+
+
+
   <form action="" method="post">
-    <input type="checkbox" name="weekdays" value="Monday" {{#if data.Monday}}checked{{/if}} >Monday
-    <input type="checkbox" name="weekdays" value="Tuesday"{{#if data.Tuesday}}checked{{/if}} >Tuesday
-    <input type="checkbox" name="weekdays" value="Wednesday" {{#if data.Wednesday}}checked{{/if}}>Wednesday
-    <input type="checkbox" name="weekdays" value="Thursday"{{#if data.Thursday}}checked{{/if}} >Thursday
-    <input type="checkbox" name="weekdays" value="Friday"  {{#if data.Friday}}checked{{/if}}>Friday
-    <input type="checkbox" name="weekdays" value="Saturday" {{#if data.Saturday}}checked{{/if}}>Saturday
-    <input type="checkbox" name="weekdays" value="Sunday" {{#if data.Sunday}}checked{{/if}}>Sunday
+    <input type="checkbox" name="weekdays" value="Monday"  {{#if waiter.days.Monday}}checked{{/if}} >Monday
+    <input type="checkbox" name="weekdays" value="Tuesday" {{#if waiter.days.Tuesday}}checked{{/if}} >Tuesday
+    <input type="checkbox" name="weekdays" value="Wednesday" {{#if waiter.days.Wednesday}}checked{{/if}}>Wednesday
+    <input type="checkbox" name="weekdays" value="Thursday" {{#if waiter.days.Thursday}}checked{{/if}} >Thursday
+    <input type="checkbox" name="weekdays" value="Friday" {{#if waiter.days.Friday}}checked{{/if}}>Friday
+    <input type="checkbox" name="weekdays" value="Saturday" {{#if waiter.days.Saturday}}checked{{/if}}>Saturday
+    <input type="checkbox" name="weekdays" value="Sunday"  {{#if waiter.days.Sunday}}checked{{/if}}>Sunday
     <br></br>
     <button  type="submit" name="button">Add Days</button>
 
   </form>
-   <h3>{{submitmsg}}</h3>
+
+   <h3>{{messages.submitmsg}}</h3>
 </body>
 
 </html>

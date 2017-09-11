@@ -2,12 +2,17 @@ var express = require('express')
 var exphbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 var app = express()
+var flash = require('express-flash');
+var session = require('express-session');
+var cookieParser = require('cookie-parser')
 var models = require('./models')
 app.engine('handlebars', exphbs({
   defaultLayout: 'main'
 }))
 app.set('view engine', 'handlebars');
-
+app.use(session({secret:'keyboard cat', cookie: {maxAge:60000}}))
+app.use(cookieParser('keyboard cat'));
+app.use(flash());
 app.use(bodyParser.urlencoded({
   extended: false
 }))
@@ -16,16 +21,30 @@ app.use(bodyParser.json())
 app.use(express.static('public'));
 
 
-app.get('/waiters/:username', function(req, res) {
+app.get('/waiters/:username', function(req, res, next) {
   var waiterName = req.params.username;
-  res.render('index', {
-    displayName: "Hi " + waiterName + "," + " please select your days"
+  //console.log(waiterName);
+  // get the user in the database for the waiterName entered
+  models.Shifts.findOne({
+    name : waiterName
+
+  }, function(err, waiter){
+    if(err){
+      return next(err);
+    }
+  
+    res.render('index', {
+      waiters:'Hi ' + waiterName + " please select your days",
+      waiter: waiter
+    })
   })
+
+
 });
 
 app.post('/waiters/:username', function(req, res) {
   var days = req.body.weekdays
-  console.log(days);
+  //console.log(days);
   var waiterName = req.params.username;
   myShift = {}
   if (!Array.isArray(days)) {
@@ -49,22 +68,26 @@ app.post('/waiters/:username', function(req, res) {
             name: waiterName,
             days: myShift
           })
-          shiftDays.save(function(err) {
+          shiftDays.save(function(err,data) {
             if (err) {
               console.log(err);
             } else {
-              res.render('index', {
-                submitmsg: "Days added successfully!"
-              })
+
+              req.flash('submitmsg', "your days have been added successfully")
+              res.redirect('/waiters/' + waiterName)
+
             }
           });
 
         }
         else{
-          res.render('index',{
-          submitmsg:  "Days updated successfully!"
-
-          })
+          // console.log(data.days.Monday);
+          // res.render('index',{
+          // submitmsg:  "Days updated successfully!",
+          // days:data
+          // })
+          req.flash('submitmsg', "your days have been updated successfully")
+          res.redirect('/waiters/'+ waiterName)
         }
       }
     })
@@ -116,17 +139,42 @@ app.post('/waiters/:username', function(req, res) {
 
 
      res.render('admin',{
-       waitersADay:waitersRoster
+       waitersADay:waitersRoster,
+       monDisplay:ColourManaging(waitersRoster.Monday.waiters.length),
+       tueDisplay:ColourManaging(waitersRoster.Tuesday.waiters.length),
+       wedDisplay:ColourManaging(waitersRoster.Wednesday.waiters.length),
+       thuDisplay:ColourManaging(waitersRoster.Thursday.waiters.length),
+       friDisplay:ColourManaging(waitersRoster.Friday.waiters.length),
+       satDisplay:ColourManaging(waitersRoster.Saturday.waiters.length),
+       sunDisplay:ColourManaging(waitersRoster.Sunday.waiters.length)
      })
    });
  });
 
 
 
+ function ColourManaging(color){
+   if(color === 3){
+     return 'colour1';
+   }
+   else if(color < 3){
+     return 'colour3';
+   }
+   else if(color > 3){
+     return 'colour2';
+   }
+ }
 
 
+ app.post('/reset', function(req, res) {
+   models.Shifts.remove({}, function(err, remove) {
+     if (err) {
+       return err;
+     }
+     res.redirect('/days')
 
-
+   });
+ });
 
 
 
@@ -166,7 +214,10 @@ app.post('/waiters/:username', function(req, res) {
 
 
 
-
+app.use(function(err, req, res, next){
+  console.log(err.stack);
+  res.send(err.stack);
+})
 
 
 

@@ -5,20 +5,19 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
+    "express-flash": "0.0.2",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
     "mongoose": "^4.11.10",
     "pkg": "^4.2.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC"
-},
-"devDependencies": {},
-"scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "node index.js"
 }
