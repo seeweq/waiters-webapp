@@ -8,73 +8,84 @@
 </head>
 
 <body>
+  <h1 align = "center">Weekly Schedule</h1>
+  <h3 class="key">Key</h3>
+  <table>
+    <tr>
+      <th style="background-color: green; ">Enough waiters</th>
+      <th style="background-color: orange;">Waiter(s) still needed</th>
+      <th style="background-color: red;">Too many waiters</th>
+    </tr>
+  </table><br>
+
+  <h3 class="waiterTble">Waiters Roster</h3>
   <table>
     <thead>
+      <tr>
+        <th class="headings">Monday</th>
+        <th class="headings">Tuesday</th>
+        <th class="headings">Wednesday</th>
+        <th class="headings">Thursday</th>
+        <th class="headings">Friday</th>
+        <th class="headings">Saturday</th>
+        <th class="headings">Sunday</th>
+      </tr>
+    </thead>
     <tr>
-    <th class="headings">Monday</th>
-    <th class="headings">Tuesday</th>
-    <th class="headings">Wednesday</th>
-    <th class="headings">Thursday</th>
-    <th class="headings">Friday</th>
-    <th class="headings">Saturday</th>
-    <th class="headings">Sunday</th>
-</tr>
-</thead>
-<tr>
-    <ul>
-       <td class="{{monDisplay}}">
-        {{#each waitersADay.Monday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
+      <ul>
+        <td class="{{monDisplay}}">
+          {{#each waitersADay.Monday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
 
 
 
-      <td class="{{tueDisplay}}">
-        {{#each waitersADay.Tuesday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
+        <td class="{{tueDisplay}}">
+          {{#each waitersADay.Tuesday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
 
 
-      <td class="{{wedDisplay}}">
-        {{#each waitersADay.Wednesday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
+        <td class="{{wedDisplay}}">
+          {{#each waitersADay.Wednesday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
 
 
-      <td class="{{thuDisplay}}">
-        {{#each waitersADay.Thursday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
-
-
-
-      <td class="{{friDisplay}}">
-        {{#each waitersADay.Friday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
+        <td class="{{thuDisplay}}">
+          {{#each waitersADay.Thursday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
 
 
 
-      <td class="{{satDisplay}}">
-        {{#each waitersADay.Saturday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
+        <td class="{{friDisplay}}">
+          {{#each waitersADay.Friday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
 
 
 
-      <td class="{{sunDisplay}}">
-        {{#each waitersADay.Sunday.waiters}}
-          <li> {{this}} </li>
-        {{/each}}
-      </td>
-    </ul>
-  </tr>
+        <td class="{{satDisplay}}">
+          {{#each waitersADay.Saturday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
+
+
+
+        <td class="{{sunDisplay}}">
+          {{#each waitersADay.Sunday.waiters}}
+            <li> {{this}} </li>
+          {{/each}}
+        </td>
+      </ul>
+    </tr>
   </table>
   <form class="resetbtn" action="/reset" method="post">
     <input type="submit" name="waiterResetbtn" value="Reset">
