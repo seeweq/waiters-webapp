@@ -23,7 +23,8 @@ app.use(express.static('public'));
 
 app.get('/waiters/:username', function(req, res, next) {
   var waiterName = req.params.username;
-  //console.log(waiterName);
+  //var waiterName = waiterName.substring(0, 1).toUpperCase() + waiterName.substring(1);
+  //  console.log(waiterName);
   // get the user in the database for the waiterName entered
   models.Shifts.findOne({
     name : waiterName
@@ -32,9 +33,9 @@ app.get('/waiters/:username', function(req, res, next) {
     if(err){
       return next(err);
     }
-  
+
     res.render('index', {
-      waiters:'Hi ' + waiterName + " please select your days",
+      waiters:'Hi, ' + waiterName + " please select your days",
       waiter: waiter
     })
   })
@@ -44,9 +45,15 @@ app.get('/waiters/:username', function(req, res, next) {
 
 app.post('/waiters/:username', function(req, res) {
   var days = req.body.weekdays
-  //console.log(days);
+  // console.log(days);
   var waiterName = req.params.username;
   myShift = {}
+  if(!days){
+    req.flash('submitmsg','please select atleast one day!')
+    res.redirect('/waiters/' + waiterName)
+    return
+  }
+
   if (!Array.isArray(days)) {
     days = [days]
   } else {
@@ -54,6 +61,7 @@ app.post('/waiters/:username', function(req, res) {
       myShift[selectedDays] = true
     })
   }
+
   models.Shifts.findOneAndUpdate({
       name: waiterName
     }, {
@@ -132,6 +140,7 @@ app.post('/waiters/:username', function(req, res) {
             //  console.log("+++++++++++++++" + day);
              waitersRoster[day].waiters.push(waiterShift.name)
            }
+
          })
        })
      }
