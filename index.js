@@ -49,9 +49,8 @@ app.get('/waiters/:username', function(req, res, next) {
 });
 
 app.post('/waiters/:username', function(req, res) {
-  var days = req.body.weekdays
-  // console.log(days);
-  var waiterName = req.params.username;
+   var days = req.body.weekdays
+   var waiterName = req.params.username;
   myShift = {}
   if (!days) {
     req.flash('submitmsg', 'please select atleast one day!')
@@ -136,7 +135,7 @@ app.get('/days', function(req, res) {
       results.forEach(function(waiterShift) {
         weekDays.forEach(function(day) {
           if (waiterShift.days[day]) {
-          waitersRoster[day].waiters.push(waiterShift.name)
+            waitersRoster[day].waiters.push(waiterShift.name)
           }
 
         })
