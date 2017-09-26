@@ -22,7 +22,7 @@
 
 -   install Nodejs `sudo apt-get install nodejs`
 -   install package.json`npm install pkg --save`
--   firstly download MongoDB as your database
+-   firstly download MongoDB as your database,go to `www.mongodb.com` and download the software
 -   in the terminal install mongoose,run the following commands`npm install mongoose --save`
 -   in the termina install express with these commands`npm install express --save`
 -   in the terminal install express-handlebars `npm install express-handlebars --save`
