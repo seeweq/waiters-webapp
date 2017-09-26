@@ -20,16 +20,16 @@
 
 ### for the App to run on your browser you will need the following middle-wares
 
--   install Nodejs (sudo apt-get install nodejs)
--   install package.json(npm install pkg --save)
+-   install Nodejs `sudo apt-get install nodejs`
+-   install package.json`npm install pkg --save`
 -   firstly download MongoDB as your database
--   in the terminal install mongoose,run the following commands(npm install mongoose --save)
--   in the termina install express with these commands(npm install express --save)
--   in the terminal install express-handlebars (npm install express-handlebars --save)
--   install body-parser (npm install body-parser --save)
--   install express-session(npm install express-session --save)
--   install express-flash(npm install express-flash --save)
--   install cookie-parser(npm install cookie-parser --save)
+-   in the terminal install mongoose,run the following commands`npm install mongoose --save`
+-   in the termina install express with these commands`npm install express --save`
+-   in the terminal install express-handlebars `npm install express-handlebars --save`
+-   install body-parser `npm install body-parser --save`
+-   install express-session`npm install express-session --save`
+-   install express-flash`npm install express-flash --save`
+-   install cookie-parser`npm install cookie-parser --save`
 
 
 ## Test
