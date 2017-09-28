@@ -1,21 +1,20 @@
 # WAITER-APP
 
 ## Clone app
-- Fork the respository on github and clone
+- Fork the respository on github and clone on your local machine under the folder you want to work on.
 
 ## Installation
 - mongoose
 - express
 - express-handlebars
-- package.json
 - body-parser
 - express-flash
 - cookie-parser
 - express-session
 - nodejs
-
-# Downloads
 - MongoDB
+
+
 
 ## Files
 - .gitignore
@@ -25,6 +24,7 @@
 - admin.handlebars
 - main.handlebars
 - waiterapp.css
+- package.json
 
 ## Folders
 - projects
@@ -36,9 +36,7 @@
 ## Software
 - Nodejs
 
-## test
-- nodemon
 
-## Database
-- Heroku
+## Database and accounts
+- Heroku 
 - mLab
